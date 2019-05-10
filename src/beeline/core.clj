@@ -1,4 +1,5 @@
 (ns beeline.core
+  (:gen-class)
   (:require [clojure.data.json :as json]
             [honeysql.core :as sql]
             [clojure.walk :as w]))
@@ -34,4 +35,5 @@
        (print))))
 
 (defn -main [input]
-  (handler input))
+  (handler input)
+  (flush))
