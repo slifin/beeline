@@ -1,7 +1,6 @@
 ; Converts between our made up syntax
 ; & Clojure data types to pass to honeySQL.
 (ns beeline.converters
-  (:gen-class)
   (:require [beeline.identifiers :as ident]))
 
 (defn vector->function-name
@@ -27,11 +26,10 @@
 (defn hash->callable
   "Converts [\"#sql/call\" \":+\" 1 1] to function call"
   [element]
-  element)
-  ;(if (ident/is-callable? element)
-  ;  (apply
-  ;    call->list
-  ;    (into
-  ;      [(vector->function-name element)]
-  ;      (rest element)))
-  ;  element))
+ (if (ident/is-callable? element)
+   (apply
+     call->list
+     (into
+       [(vector->function-name element)]
+       (rest element)))
+   element))
