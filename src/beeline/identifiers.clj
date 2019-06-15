@@ -7,9 +7,3 @@
   (and (string? data)
     (= \: (first data))))
 
-(defn is-callable?
-  "Is this element a nested callable?"
-  [element]
-  (and (vector? element)
-       (string? (first element))
-       (= \# (first (first element)))))
