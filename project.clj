@@ -8,4 +8,11 @@
                  [honeysql "0.9.4"]
                  [org.clojure/data.json "0.2.6"]]
   :main ^:skip-aot beeline.core
-  :repl-options {:init-ns beeline.core})
+  :repl-options {:init-ns beeline.core}
+  :native-image {
+                 :opts [
+                        ;"--verbose"
+                        ;"--initialize-at-build-time"
+                        "-H:+ReportExceptionStackTraces"
+                        "--report-unsupported-elements-at-runtime"]})
+

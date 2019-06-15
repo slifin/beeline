@@ -1,5 +1,6 @@
 ; Have we identified parts of our made up lang?
-(ns beeline.identifiers)
+(ns beeline.identifiers
+  (:gen-class))
 
 (defn is-keyword?
   "Is this a pretend keyword?"
@@ -11,4 +12,5 @@
   "Is this element a nested callable?"
   [element]
   (and (vector? element)
+       (string? (first element))
        (= \# (first (first element)))))
