@@ -23,6 +23,10 @@
     args
     (list (ns-resolve 'honeysql.types (symbol name)))))
 
+; I think the rules for this are:
+; The next thing after a function call is the args
+; if the next thing is an array, then that's arg list
+; if it's scalar then that's the single argument
 (defn hash->callable
   "Converts [\"#sql/call\" \":+\" 1 1] to function call"
   [element]
