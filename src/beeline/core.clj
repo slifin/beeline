@@ -3,12 +3,7 @@
   (:require [clojure.data.json :as json]
             [honeysql.core :as sql]))
 
-(def example "{\":select\" [\":b\", \"#sql/inline\", 5]}")
-
-(defn handler
-  "Accepts input from stdin"
-  ([] (handler example))
-  ([input]
+(defn -main [input]
    (-> input
        (json/read-str)
        (str)
@@ -16,8 +11,5 @@
        (read-string)
        (sql/format)
        (json/write-str)
-       (print))))
-
-(defn -main [input]
-  (handler input)
+       (print))
   (flush))
