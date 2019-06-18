@@ -7,7 +7,7 @@
    (-> input
        (json/read-str)
        (str)
-       (clojure.string/replace #"(\")(#|:)(.*?)(\")" "$2$3")
+       (clojure.string/replace #"\"([#:][^\"]*)\"" "$1")
        (read-string)
        (sql/format)
        (json/write-str)
