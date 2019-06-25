@@ -11,7 +11,7 @@
   :repl-options {:init-ns beeline.core}
   :native-image {
                  :opts [
-                        ;"--verbose"
+                        "--static"
                         "--initialize-at-build-time"
                         "-H:+ReportExceptionStackTraces"
                         "--report-unsupported-elements-at-runtime"]})

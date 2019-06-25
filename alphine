@@ -1,0 +1,13 @@
+FROM clojure:alpine
+
+ADD . /beeline/
+
+# WORKDIR /
+# RUN apk --no-cache add ca-certificates gcc zlib zlib-dev libc-dev
+
+# ENV PATH /beeline/graalvm/bin:$PATH
+# RUN gu install native-image
+# ENV JAVA_OPTS="-Xms1024m -Xmx12g"
+# WORKDIR /beeline
+# RUN lein native-image
+
